@@ -48,7 +48,7 @@ yargs.command({
     command: 'update',
     describe: 'update the user based on the id',
     builder: {
-        id: {
+        id : {
             describe: 'The id of the user',
             demandOption: true,
             type: 'string'
@@ -65,15 +65,9 @@ yargs.command({
         },
     },
     handler(argv) {
-        const { id, name, email } = argv;
-        if (!name && !email) {
-            console.log('Please provide at least one of the following options: name, email');
-            return;
-        }
-        users.updateUser(id, name, email);
+        users.updateUser(argv.id, argv.name, argv.email)
     }
-});
-
+})
 //create a Delete command
 yargs.command({
     command: 'delete',
@@ -92,3 +86,4 @@ yargs.command({
 
 
 yargs.parse()
+//Hi
